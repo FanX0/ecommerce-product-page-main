@@ -11,13 +11,251 @@
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
+    <link rel="stylesheet" href="./index.css" />
+    <script src="./index.js" defer></script>
 
     <title>Frontend Mentor | E-commerce product page</title>
   </head>
   <body>
-    Collections Men Women About Contact Sneaker Company Fall Limited Edition
-    Sneakers These low-profile sneakers are your perfect casual wear companion.
-    Featuring a durable rubber outer sole, they’ll withstand everything the
-    weather can offer. $125.00 50% $250.00 0 Add to cart
+    <header class="header">
+      <div class="header-left">
+        <button
+          id="menu-button"
+          class="menu-button"
+          type="button"
+          aria-haspopup="menu"
+          aria-expanded="false"
+          aria-controls="menu-list"
+        >
+          <img
+            id="menu-icon"
+            class="header-menu"
+            src="./images/icon-menu.svg"
+            alt="menu"
+          />
+        </button>
+        <img class="header-logo" src="./images/logo.svg" alt="sneakers-logo" />
+        <nav>
+          <ul id="menu-list" class="menu-list" hidden>
+            <li><a href="#">Collections</a></li>
+            <li><a href="#">Men</a></li>
+            <li><a href="#">Women</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <a href="#"
+          ><img class="header-cart" src="./images/icon-cart.svg" alt="cart"
+        /></a>
+        <a href="#"
+          ><img
+            class="header-profile"
+            src="./images/image-avatar.png"
+            alt="profile"
+        /></a>
+      </div>
+    </header>
+    <main>
+      <article>
+        <section
+          id="carousel"
+          class="product-carousel"
+          aria-label="image carousel"
+        >
+          <button
+            id="product-carousel-frame"
+            class="product-carousel-frame"
+            type="button"
+            data-frame
+          >
+            <img
+              src="./images/image-product-1.jpg"
+              alt="Fall sneakers — angle 1"
+            />
+            <img
+              src="./images/image-product-2.jpg"
+              alt="Fall sneakers — angle 2"
+              hidden
+            />
+            <img
+              src="./images/image-product-3.jpg"
+              alt="Fall sneakers — angle 3"
+              hidden
+            />
+            <img
+              src="./images/image-product-4.jpg"
+              alt="Fall sneakers — angle 4"
+              hidden
+            />
+          </button>
+
+          <div
+            id="product-carousel-desktop"
+            class="product-carousel-desktop"
+            role="list"
+          >
+            <button class="thumb" type="button" data-thumb aria-current="true">
+              <img src="./images/image-product-1.jpg" alt="Show image 1" />
+            </button>
+            <button class="thumb" type="button" data-thumb>
+              <img src="./images/image-product-2.jpg" alt="Show image 2" />
+            </button>
+            <button class="thumb" type="button" data-thumb>
+              <img src="./images/image-product-3.jpg" alt="Show image 3" />
+            </button>
+            <button class="thumb" type="button" data-thumb>
+              <img src="./images/image-product-4.jpg" alt="Show image 4" />
+            </button>
+          </div>
+
+          <div class="product-carousel-button">
+            <button
+              id="button-previous"
+              type="button"
+              class="button-previous"
+              data-prev
+            >
+              <img src="./images/icon-previous.svg" alt="Previous image" />
+            </button>
+            <button
+              id="button-next"
+              type="button"
+              class="button-next"
+              data-next
+            >
+              <img src="./images/icon-next.svg" alt="Next image" />
+            </button>
+          </div>
+        </section>
+        <section aria-label="image carousel modal">
+          <dialog
+            id="product-modal"
+            class="modal"
+            aria-labelledby="m-title"
+            aria-describedby="m-desc"
+          >
+            <section class="modal-content">
+              <header class="modal-header">
+                <button
+                  type="button"
+                  data-close
+                  aria-label="Close modal"
+                  class="close-button"
+                >
+                  <img src="./images/icon-close.svg" alt="" />
+                </button>
+              </header>
+
+              <div
+                class="product-carousel product-carousel--modal"
+                aria-label="image carousel (modal)"
+              >
+                <div class="product-carousel-frame-modal" data-frame>
+                  <img
+                    src="./images/image-product-1.jpg"
+                    alt="Fall sneakers — angle 1 (modal)"
+                  />
+                  <img
+                    src="./images/image-product-2.jpg"
+                    alt="Fall sneakers — angle 2 (modal)"
+                    hidden
+                  />
+                  <img
+                    src="./images/image-product-3.jpg"
+                    alt="Fall sneakers — angle 3 (modal)"
+                    hidden
+                  />
+                  <img
+                    src="./images/image-product-4.jpg"
+                    alt="Fall sneakers — angle 4 (modal)"
+                    hidden
+                  />
+                </div>
+
+                <div class="product-carousel-desktop-modal" role="list">
+                  <button
+                    class="thumb-modal"
+                    type="button"
+                    data-thumb
+                    aria-current="true"
+                  >
+                    <img
+                      src="./images/image-product-1.jpg"
+                      alt="Show image 1 (modal)"
+                    />
+                  </button>
+                  <button class="thumb-modal" type="button" data-thumb>
+                    <img
+                      src="./images/image-product-2.jpg"
+                      alt="Show image 2 (modal)"
+                    />
+                  </button>
+                  <button class="thumb-modal" type="button" data-thumb>
+                    <img
+                      src="./images/image-product-3.jpg"
+                      alt="Show image 3 (modal)"
+                    />
+                  </button>
+                  <button class="thumb-modal" type="button" data-thumb>
+                    <img
+                      src="./images/image-product-4.jpg"
+                      alt="Show image 4 (modal)"
+                    />
+                  </button>
+                </div>
+
+                <div class="product-carousel-button-modal">
+                  <button type="button" class="button-previous-modal" data-prev>
+                    <img
+                      src="./images/icon-previous.svg"
+                      alt="Previous image"
+                    />
+                  </button>
+                  <button type="button" class="button-next-modal" data-next>
+                    <img src="./images/icon-next.svg" alt="Next image" />
+                  </button>
+                </div>
+              </div>
+            </section>
+          </dialog>
+        </section>
+        <section class="product-title" aria-label="product-title">
+          <h2>Sneaker Company</h2>
+          <h1>Fall Limited Edition Sneakers</h1>
+          <p class="product-title-description">
+            These low-profile sneakers are your perfect casual wear companion.
+            Featuring a durable rubber outer sole, they’ll withstand everything
+            the weather can offer.
+          </p>
+          <div class="product-price">
+            <div class="product-price-discount">
+              <div class="price-discount">
+                <p class="price">$125.00</p>
+                <p class="discount">50%</p>
+              </div>
+              <p class="price-real">$250.00</p>
+            </div>
+          </div>
+          <div class="product-buy">
+            <div class="product-amount">
+              <button type="button">
+                <img src="./images/icon-minus.svg" alt="icon-minus" />
+              </button>
+              <div>0</div>
+              <button type="button">
+                <img src="./images/icon-plus.svg" alt="icon-plus" />
+              </button>
+            </div>
+            <button class="product-button-cart">
+              <img src="./images/icon-cart.svg" alt="icon-cart" />
+              <p>Add to cart</p>
+            </button>
+          </div>
+        </section>
+      </article>
+    </main>
   </body>
 </html>
