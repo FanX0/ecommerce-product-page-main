@@ -73,17 +73,48 @@ const modalEl = document.getElementById("product-modal");
 const modalCarouselRoot = modalEl.querySelector(".product-carousel--modal");
 const modal = setupCarousel(modalCarouselRoot);
 
-document
-  .getElementById("product-carousel-frame")
-  .addEventListener("click", () => {
+const opener = document.getElementById("product-carousel-frame");
+const mq = window.matchMedia("(min-width: 48rem)");
+
+let onOpenClick = null;
+
+function enableDesktopModal() {
+  if (onOpenClick) return;
+  onOpenClick = () => {
     modal.setIndex(main.getIndex());
     modalEl.showModal();
     modalEl.querySelector("[data-close]").focus();
-  });
+  };
+  opener.addEventListener("click", onOpenClick);
+  opener.setAttribute("aria-haspopup", "dialog");
+}
+
+function disableDesktopModal() {
+  if (onOpenClick) {
+    opener.removeEventListener("click", onOpenClick);
+    onOpenClick = null;
+  }
+  opener.removeAttribute("aria-haspopup");
+  // make sure modal is not open on mobile
+  if (modalEl.open) modalEl.close();
+}
+
+function applyModalMode(e) {
+  if (mq.matches) {
+    enableDesktopModal();
+  } else {
+    disableDesktopModal();
+  }
+}
+
+applyModalMode();
+mq.addEventListener?.("change", applyModalMode) ||
+  mq.addListener?.(applyModalMode);
 
 modalEl
   .querySelector("[data-close]")
   .addEventListener("click", () => modalEl.close());
+
 modalEl.addEventListener("click", (e) => {
   if (e.target === modalEl) modalEl.close();
 });
